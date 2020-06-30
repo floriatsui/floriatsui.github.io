@@ -45,7 +45,7 @@ h1 {
     font-family: "Josefin Sans"; 
 }
 .center {
-    background: url("website\ image\ final.png") no-repeat;
+    background: url("./images/website\ image\ final.png") no-repeat;
     background-size: contain; 
     width: 600px; 
     height: 350px; 
@@ -55,7 +55,7 @@ h1 {
     padding: 0px 0px 0px 0px; 
 }
 .center:hover {
-    background: url("website\ image\ final\ 2.png") no-repeat;
+    background: url("./images/website\ image\ final\ 2.png") no-repeat;
     background-size: contain; 
     width: 600px; 
     height: 350px; 
