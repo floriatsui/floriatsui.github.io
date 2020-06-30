@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "./style.css" type = "text/css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Cormorant Garamond' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Josefin Sans:100, 300, 400' rel='stylesheet'>
+        <title>Search</title>
+    </head>
+    <body>
+        <div class = "menu">
+            <a href="./index.html">HOME</a>
+            <a href="./portfolio.html">PORTFOLIO</a>
+            <a href="./projects.html">PROJECTS</a>
+            <a href="./resume">RESUME</a>
+        </div>
+        <h1>Search</h1>
+        <div class = "project_descriptions">
+            <p>I worked on search as a project for CS180 during Spring 2020, with a partner. The premise of this project 
+                was creating a search engine over a corpus of Wikipedia pages. The project was separated into two different 
+                components: an Indexer that would preprocess the information in the corpus and a Querier that would 
+                field a user query and then return the pages relevant to the query. 
+            </p>
+            <p> The difficult part of the first part of the Indexer was understanding Google's page rank algorithm from a 
+                conceptual understanding and finding the optimal way of processing the document. At first my approach 
+                was iterating through each page, tokenizing, stemming each word, and removing the stop words, which proved to be an
+                inefficient approach because after processing each page, I would have to iterate through the page yet again 
+                to store the frequence of each word on the page. 
+                It proved to be much more efficient to process each word of each page once and tokenize and stem words as I processed 
+                each page. Each wikipedia page also were populated by links to other pages, and each link needed to be processed differently 
+                because some links had a different text display than the page they linked to. In addition, in order to properly utilize 
+                the page rank algorithm, each link the page linked to had to be stored. 
+            </p>
+            <p>
+                The second part of the project was the Querier, which processed the files that the Indexer wrote to (writing hashmaps to 
+                files) and converted them back into data structures. And using those data structures to find each word associated with 
+                the user's query, computing their relevancy scores (term frequency and inverse document frequency) for each given page 
+                and then returning the pages with the highest scores. 
+                A bug that I encountered was I didn't account for the case when a user queried something like "dog breed alsdkjfalks", and needing 
+                to make sure that the results returned wouldn't be affected by a word that was gibberish or isn't found in the corpus. 
+            </p>
+        </div>
+    </body>
+</html>

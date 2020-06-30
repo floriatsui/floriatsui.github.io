@@ -1,0 +1,206 @@
+body {
+    background-color: #FFFFF8;
+}
+/* menu */
+.menu {
+    float: center; 
+    overflow: hidden;
+    padding: 10px 10px;
+    text-align: center; 
+}
+.menu a {
+    text-decoration: none; 
+    color: #435254; 
+    padding: 10px 30px; 
+    font-family: 'Josefin Sans';
+    font-size: 15px;  
+    font-weight: 400; 
+}
+.menu a:hover {
+    padding: 10px 30px; 
+    color: #349FB7; 
+} 
+/* home page */
+h1 {
+    text-align: center;
+    font-family: "Futura", sans-serif;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #349FB7; 
+    padding: 0px 0px 0px 0px; 
+}
+.bodytext {
+    margin-right: auto;
+    margin-left: auto; 
+    width: 500px; 
+    height: 200px; 
+    text-align: center; 
+    line-height: 25px; 
+}
+.bodytext p {
+    font-family: "Cormorant Garamond"; 
+}
+.bodytext h4 {
+    font-family: "Josefin Sans"; 
+}
+.center {
+    background: url("website\ image\ final.png") no-repeat;
+    background-size: contain; 
+    width: 600px; 
+    height: 350px; 
+    display: block; 
+    margin-right: auto; 
+    margin-left: auto; 
+    padding: 0px 0px 0px 0px; 
+}
+.center:hover {
+    background: url("website\ image\ final\ 2.png") no-repeat;
+    background-size: contain; 
+    width: 600px; 
+    height: 350px; 
+    display: block;
+    margin-right: auto; 
+    margin-left: auto; 
+}
+/* projects page */
+.projects_container {
+    display: grid;
+    float: center; 
+    grid-template-columns: auto auto auto; 
+    padding: 10px;
+    width: 800px;  
+    row-gap: 30px;
+    column-gap: 10px;
+    margin-right: auto; 
+    margin-left: auto; 
+}
+.projects_container a {
+    text-decoration: none;
+    color: inherit; 
+}
+.card_container {
+    border: 1px solid #EDF8F9;
+    border-radius: 5px; 
+    background-color: #EDF8F9; 
+    padding: 20px; 
+    font-size: 30px;
+    text-align: center; 
+    width: 230px; 
+    height: 150px; 
+}
+.card_container:hover {
+    border: 1px solid #349FB7; 
+    color: #349FB7; 
+}
+.card_container h5 {
+    margin-top: 0px; 
+    font-family: "Josefin Sans"; 
+    font-size: 22px; 
+    font-weight: 50px; 
+    margin-bottom: 0px;
+    color: #435254; 
+}
+.card_container p {
+    font-family: "Cormorant Garamond"; 
+    padding: 5px; 
+    font-size: 15px; 
+    margin-top: 0px; 
+}
+#under_words {
+    font-family: "Josefin Sans"; 
+    font-size: 14px; 
+    font-weight: 300; 
+}
+/* project page */
+.project_descriptions p {
+    font-family: "Cormorant Garamond"; 
+    max-width: 600px;
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+/* portfolio page */ 
+.portfolio h3 { 
+    font-family: "Josefin Sans"; 
+    text-align: center; 
+    color: #435254;
+}
+.portfolio p {
+    font-family: "Cormorant Garamond"; 
+    text-align: center; 
+    max-width: 600px;
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.slideshow-container {
+    max-width: 400px; 
+    position: relative; 
+    margin: auto; 
+}
+.mySlides {
+    display: none; 
+}
+.mySlides2 {
+    display: none; 
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #435254;
+    transition: 0.6s ease;
+    border-width: 1px;
+    border: 1px solid #435254; 
+}
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: #EDF8F9;
+}
+.dot {
+    padding: 1px 1px 1px 1px; 
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #EDF8F9;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border: 1px solid #349FB7; 
+}
+  
+.active, .dot:hover {
+    background-color: #349FB7;
+} 
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+
+        

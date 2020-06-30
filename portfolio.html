@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "./style.css" type = "text/css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Josefin Sans:100, 400' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Cormorant Garamond' rel='stylesheet'>
+        <title>Portfolio</title>
+    </head>
+    <body>
+        <div class = "menu">
+            <a href="./index.html">HOME</a>
+            <a href="./portfolio.html">PORTFOLIO</a>
+            <a href="./projects.html">PROJECTS</a>
+            <a href="./resume">RESUME</a>
+        </div>
+        <h1 id="heading">Art Portfolio</h1>
+        <div class = "portfolio">
+                <h3>Illustrations</h3>
+                <div id="slideshow1" class="slideshow-container">
+
+                    <div class="mySlides fade">
+                      <img src="illustration.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="illustration3-24.png" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="28.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="capitol building illustration.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="fidget spinner illustration.png" style="width:100%">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1, slideshow1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slideshow1)">&#10095;</a>
+                    
+                    <br>
+                    <div style="text-align:center">
+                      <span class="dot" onclick="currentSlide(1, slideshow1)"></span> 
+                      <span class="dot" onclick="currentSlide(2, slideshow1)"></span> 
+                      <span class="dot" onclick="currentSlide(3, slideshow1)"></span>
+                      <span class="dot" onclick="currentSlide(4, slideshow1)"></span>
+                      <span class="dot" onclick="currentSlide(5, slideshow1)"></span>  
+                    </div>
+                
+                </div>
+                <br>
+                <h3>High School Portfolio</h3>
+                <div id="slideshow2" class="slideshow-container">
+                    
+                    <div class="mySlides fade">
+                      <img src="people.jpg" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="fish.JPG" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="machine.JPG" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="portrait.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="frog.jpg" style="width:100%">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1, slideshow2)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, slideshow2)">&#10095;</a>
+                    
+                    <br>
+                    <div style="text-align:center">
+                      <span class="dot" onclick="currentSlide(1, slideshow2)"></span> 
+                      <span class="dot" onclick="currentSlide(2, slideshow2)"></span> 
+                      <span class="dot" onclick="currentSlide(3, slideshow2)"></span>
+                      <span class="dot" onclick="currentSlide(4, slideshow2)"></span>
+                      <span class="dot" onclick="currentSlide(5, slideshow2)"></span>   
+                    </div>
+                </div>
+            <h3>Sketches</h3>
+            <p>Coming soon!</p>
+            <script>
+                var slideshow1 = document.getElementById("slideshow1");
+                slideshow1.currentSlideIndex = 1;
+                showSlides(slideshow1.currentSlideIndex, slideshow1);
+
+                var slideshow2 = document.getElementById("slideshow2");
+                slideshow2.currentSlideIndex = 1;
+                showSlides(slideshow2.currentSlideIndex, slideshow2);
+
+
+                function plusSlides(n, slideshow) {
+                showSlides(slideshow.currentSlideIndex += n, slideshow);
+                }
+
+                function currentSlide(n, slideshow) {
+                showSlides(slideshow.currentSlideIndex = n, slideshow);
+                }
+
+                function showSlides(n, slideshow) {
+                    var i;
+                    var slides = slideshow.getElementsByClassName("mySlides");
+                    var dots = slideshow.getElementsByClassName("dot");
+                    if (n > slides.length) {slideshow.currentSlideIndex = 1}    
+                    if (n < 1) {slideshow.currentSlideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideshow.currentSlideIndex-1].style.display = "block";  
+                    dots[slideshow.currentSlideIndex-1].className += " active";
+                }
+            </script>
+        </div>
+    </body>
+</html>
