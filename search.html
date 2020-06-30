@@ -4,7 +4,7 @@
         <link href = "./style.css" type = "text/css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Cormorant Garamond' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Josefin Sans:100, 300, 400' rel='stylesheet'>
-        <title>Search</title>
+        <title>Floria Tsui | Search</title>
     </head>
     <body>
         <div class = "menu">
@@ -14,30 +14,38 @@
             <a href="./resume">RESUME</a>
         </div>
         <h1>Search</h1>
+        <p id = "under_heading">Introduction to Object Oriented Programming | Scala | Spring 2020</p>
         <div class = "project_descriptions">
+            <h3>Project Outline</h3>
             <p>I worked on search as a project for CS180 during Spring 2020, with a partner. The premise of this project 
                 was creating a search engine over a corpus of Wikipedia pages. The project was separated into two different 
                 components: an Indexer that would preprocess the information in the corpus and a Querier that would 
-                field a user query and then return the pages relevant to the query. 
+                field a user query and then return the Wiki pages relevant to the query. 
             </p>
-            <p> The difficult part of the first part of the Indexer was understanding Google's page rank algorithm from a 
-                conceptual understanding and finding the optimal way of processing the document. At first my approach 
-                was iterating through each page, tokenizing, stemming each word, and removing the stop words, which proved to be an
-                inefficient approach because after processing each page, I would have to iterate through the page yet again 
-                to store the frequence of each word on the page. 
-                It proved to be much more efficient to process each word of each page once and tokenize and stem words as I processed 
-                each page. Each wikipedia page also were populated by links to other pages, and each link needed to be processed differently 
-                because some links had a different text display than the page they linked to. In addition, in order to properly utilize 
-                the page rank algorithm, each link the page linked to had to be stored. 
-            </p>
-            <p>
-                The second part of the project was the Querier, which processed the files that the Indexer wrote to (writing hashmaps to 
-                files) and converted them back into data structures. And using those data structures to find each word associated with 
-                the user's query, computing their relevancy scores (term frequency and inverse document frequency) for each given page 
-                and then returning the pages with the highest scores. 
-                A bug that I encountered was I didn't account for the case when a user queried something like "dog breed alsdkjfalks", and needing 
-                to make sure that the results returned wouldn't be affected by a word that was gibberish or isn't found in the corpus. 
-            </p>
+            <h3>Indexer: Space and Time Efficiency</h3>
+            <p> The Indexer was responsible for finding the frequency of each word (for term frequency score), the maximum frequency of each page
+                (inverse document frequency score), and the rank of each page (for Google's page rank algorithm).</p>
+            <p> My initial approach was quite naive in that after tokenizing, stemming the words, and removing the stop words of each page,
+                the code would then iterate again to process each word of each page, and with each word, 
+                it would then find the frequency for each word (by iterating through the page yet again). After processing each word, 
+                the code would then compare all the frequencies to find the maximum. </p>
+            <p>To limit the traversal through each page to one time, I decided that instead of processing the text 
+                (tokenizing, stemming, removing the stop words) and then calculating the frequency of each word, I can iterate through the page 
+                and incremement the frequency of the each word as they occur as well as keeping a running count of the current maximum. 
+                However, with a more time efficient approach, I was still struggling to reach a more space efficient approach. 
+                I realized that I should be creating new variables outside of the for loop so they could be reassigned 
+                rather than reinitialized every time. The corpus as a whole, stored in a sequence of nodes, is also costly in terms of space, 
+                so limiting the lifetime / or processing the corpus piece by piece was a useful strategy.</p>
+            <p>After storing the data (frequencies and page ranks in datastructures), we used code provided to us to write to files 
+                that the Querier would use. </p>
+            <h3>Querier: Interacting with the User</h3>
+            <p>The second part of the project was the Querier, which processed the files that the Indexer wrote to and converted them back into data structures. 
+                And using those data structures to find each word associated with the user's query, c
+                omputing their relevancy scores (term frequency x inverse document frequency) using the frequencies calculated by the 
+                Indexer and then returning the pages with the highest scores. And if the user had the "page rank" flag "activated" in their query, 
+                each page score would then have the page rank factored in. </p>
+            <p>A bug that I encountered was that initially I didn't account for the case when a user queried something like "dog breed alsdkjfalks". 
+                With that kind of query, I would simply return and say that "no results match your query", instead of just not adding that word's score. </p>
         </div>
     </body>
 </html>
