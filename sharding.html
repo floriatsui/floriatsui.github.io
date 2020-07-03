@@ -4,6 +4,8 @@
         <link href = "./style.css" type = "text/css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Josefin Sans:100, 200, 300, 400' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Cormorant Garamond' rel='stylesheet'>
+        <link rel='icon' href='./images/favicon.png' type='image/png'>
+        <title>Floria Tsui | Sharding</title>
     </head>
     <body>
         <div class = "menu">
@@ -13,21 +15,28 @@
             <a href="./resume">RESUME</a>
         </div>
         <h1 id="heading">Sharding</h1>
+        <p id="under_heading">Introduction to Computer Systems | C++ | Spring 2020</p>
         <div class = "project_descriptions">
+            <h3>Project Overview</h3>
             <p>I worked on sharding as a project for the class CS131 individually for two weeks. 
                 The task of this project was to build a distributed, sharded key-value storage system, 
                 using gRPCs and Protobufs. In other words, splitting data up across multiple servers, 
-                via "shards" (or keys in key-value store). 
+                via "shards" (or a range of keys in a key-value store). 
             </p>
-            <p>The project was cumulative in the sense that each part of the project 
-                was dependent on the successful implementation of the previous step. The 
-                first step to the project was creating a simple server that could support the 
+            <h3>Step 1: Creating a simple server</h3>
+            <p>The first step to the project was creating a simple server that could support the 
                 Remote Procedure Calls (RPCs) Get, Put, and Append. 
                 I decided to use a map to store the server's data as well as a mutex to protect the data during
                 concurrent accesses to the server. 
                 After completing the server, we were able to run the code on our virtual machine (Vagrant). 
-                <img src = "" >
+                <br>
+                <video id = "video" width = "320" height = "240" controls>
+                    <source src="sharding pt 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag. 
+                </video>
+                <br>
             </p>
+            <h3>Step 2: Creating a controller program</h3>
             <p>The second step was creating a shardmaster (or a controller) that would assign shards to the 
                 active servers. The RPCs include Join, Leave, Move (moves shards to a different server), 
                 and Query (returns the current distribution). The difficult part about this step was 
@@ -36,12 +45,12 @@
                 evenly? 
                 The other tricky part in this part was moving the shards and how to extract the correct shards without 
                 interfering with the remaining shards. A bug I ran into was when I would be iterating through a server's shards 
-                and then I would remove a shard, and then try to continue iterating (but I wouldn't reach the last shard). 
+                I would be trying to remove the shard at the same time (but I wouldn't reach the last shard). 
                 To solve this issue, I created a separate data structure to store the new shards and then I copied over the old shards 
                 as well. 
                 After completing the shardmaster, it could interact with the previous simple server from step 1. 
-                <img src = "">
             </p>
+            <h3>Step 3: Creating a more advanced server</h3>
             <p>
                 The last step of this project was making an improved server, one that can
                 move the shards (and its associated key-value pairs) to the correct server (according to the shardmaster). 
@@ -49,8 +58,8 @@
                 shards on the current server are the appropriate shards, and if the server is not responsible for a certain key, then 
                 it will "put" the key to the correct server. An interesting bug that I ran into when I was writing Query was when you found a key 
                 that a server wasn't responsible for, instead of trying to find the correct server, I ended up just "putting" to the current server. 
-                After completing this step of the process, the shardmaster and servers were able to respond to 
-                <img src = "">
+                After completing this step of the process, the shardmaster and servers were able to respond to requests to move 
+                shards — and the data would be moved as well. 
             </p>
         </div>
         
