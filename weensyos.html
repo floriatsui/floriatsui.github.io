@@ -22,9 +22,9 @@
                 virtual and physical memory architecture as well as the system calls 
                 fork and exit. We used QEMU to visualize how our code looked like. </p>
             <p>The most difficult part of this project was being unable to use GDB to debug the project. 
-                When the code didn't work, we would just receive panics or page faults, which were extremely unhelpful 
+                When the code didn't work, I would just receive panics or page faults, which were extremely unhelpful 
                 in trying to figure out what exactly wasn't working. 
-                What I found helpful in debugging was talking over my code with someone else and try to articulate 
+                What I did find helpful in debugging was talking over my code with someone else and try to articulate 
                 what my code was trying to do and making sure it was fulfilling those tasks (because many times it
                 just felt like I was writing code into a void —— nothing was working it the way I wanted it to). </p>
             <h3>The First Two Steps</h3>
@@ -34,15 +34,22 @@
                 The second part of this step was ensuring that the pages the user requested were not in the region of 
                 kernel memory. </p>
             <p>The second step of the project was making sure that each process could not write to the 
-                other processes running on the operating system.</p>
-            <p>The second step was by far one of the hardest steps. 
+                other processes running on the operating system and giving each process its own pagetable. 
+                This step was difficult because I wasn't exactly sure what the code should look like, 
+                part of the reason being I didn't understand what I was doing from a conceptual level, 
+                as well as navigating a large code base and understanding what the existing code was doing. </p>
+            <p>The second step was modifying the function process_setup(). First, we would allocate a new page table 
+                for the process and copy over the kernel mappings, so that each process isn't accessing the same address soacce. 
+                And after that was complete, the code base provided a function to load each segment of memory of a process, 
+                code/text, data, etc. And this is where 
             </p>
             <h3>The Third and Fourth Step</h3>
             <p>The third and fourth step of the project was implementing virtual page allocation, so the 
                 physical to virtual memory mappings were no longer 1 to 1 and each process were using the same 
                 virtual address space (but backed by different physical addresses). </p>
             <h3>The Last Steps</h3>
-            <p>The last couple of steps involved writing the system call fork and exit. </p>
+            <p>The last couple of steps involved writing the system call fork and exit. These were both difficult functions to 
+                write because like in step 2 I could not explain what was happening in conceptual terms. </p>
         </div>
         
     </body>
