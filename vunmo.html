@@ -18,7 +18,45 @@
         <p id="under_heading">Introduction to Computer Systems | C++ | Spring 2020</p>
         <div class = "project_descriptions">
             <h3>Project Overview</h3>
-            
+            <p>As the title suggests, the project was centered around created a banking service like the 
+                popular app Venmo.</p>
+            <h3>Building a Synchronized Queue</h3>
+            <p>The first step in the project was building a synchronized queue, it's underlying 
+                data structure, as the name suggests, a queue with a mutex to protect it from concurrent access. 
+                After implementation, the queue would then be used to read and receive requests from the client 
+                and put on a queue to be processed. </p>
+            <h3>Implementing Key Functionality of the Server</h3>
+            <h4><strong><em>Accepting Clients</em></strong></h4>
+            <p>User accounts would be stored on a map. There is a client_conns map and a accounts map 
+                Client_conns map represented a client seeking to connect to the server by opening a new connection. 
+                It mapped client id to the information associated with that client. When querying the map, 
+                it was important to use coarse grained locking — initially, I tried to use fine grained locking, 
+                which meant that the code was locking a sepcific key-value pair in the map rather than the whole map. 
+                Fine grained locking would not work in this case because if that specific pair was locked, it wouldn't 
+                prevent another thread creating a duplicate key-value pair. Instead, it would make more sense to 
+                have coarse-grained locking and lock the entire map to prevent other threads 
+                from potentially creating a duplicate pair / value. The same applied for the accounts map, which mapped 
+                user IDs to specific accounts (after establishing a connection).</p>
+            <h4><strong><em>Receiving Requests</em></strong></h4>
+            <p>When the server starts, the function start initializes a fixed number worker threads. Then in the work loop, 
+                the tasks for the threads are placed in the queue. This approach of having a fixed number of worker threads 
+                rather than a growing list of threads made more sense because ifyou initialize a thread per each request, 
+                eventually you might run out of stack for each thread. </p>
+            <h4><strong><em>Processing Requests</em></strong></h4>
+            <p>Each worker thread would then process the requests, depending on what kind of request it is: balance, 
+                deposit, withdrawal, payment, and charge. In the case of payment or charge, it would require getting two accounts 
+                and locking each of those accounts (to ensure that other threads would not affect those specific two accounts). 
+                However, when locking two accounts, if there isn't an established locking order, it could result in a deadlock. 
+                Because if there was a thread that locked Account 1 and was trying to Account 2, but if there is another 
+                thread trying to has locked Account 2 and trying to lock Account 1, it would result in a stalemate. 
+                Because each account has an ID number, the most logical comparison to use is the ID number. </p>
+            <p>A bug that I encountered here was that after getting the necessary accounts, and calling the respective 
+                handle function (for example, handle_balance, handle_deposit), within those functions, if something failed, let's say that 
+                that you withdraw more than what you have or you try to pay more than what you have, I forgot that you would have 
+                to send a response back to the appropriate server and send a response
+                to the target server as well as unlock the mutex on the necessary accounts. Initially, I was only sending notifications and 
+                responses after the transaction was successful. 
+            </p>
         </div>
         
     </body>
