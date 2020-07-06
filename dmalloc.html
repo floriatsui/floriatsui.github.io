@@ -18,8 +18,29 @@
         <p id="under_heading">Introduction to Computer Systems | C++ | Spring 2020</p>
         <div class = "project_descriptions">
             <h3>Project Overview</h3>
-            <h3>Interesting bugs</h3>
+            <p>This project was centered around creating a debugger for the function Malloc, or when 
+                the user dynamically allocates memory from the heap. The main objectives for the project 
+                were to track information about dynamic memory allocation, catch programming errors like 
+                freeing the same block twice, or trying to allocate too much memory), and to detect memory overwrites. 
+            </p>
+            <h3>Project Steps</h3>
+            <h4><strong><em>Using Metadata</em></strong></h4>
+            <p>To store statistics such as the number of bytes the user requested 
+                it was suggested to store metadata before the user requested payload 
+                size, as well as some "padding" after the payload to check for boundary overwrites. </p>
+            <h4><strong><em>Debugger Steps</em></strong></h4>
+            <p>The bugs that we had to account for were integer overflow, 
+                invalid free and double frees, boundary overwrites, and freeing invalid pointers.</p>
+            <p>The most difficult part of this project was understanding what to do conceputally and 
+                using a data structure appropriately. </p>
+            <p>The most difficult bug to track was tracking invalid frees,
+                for example trying to free a pointer that was actually allocated in another block. 
+                In general writing kfree(), there was a lot of checks — there needed to be a way to guarantee 
+                that I was actually accessing the metadata pointer, a way to track if that pointer pointed 
+                to an address that was allocated data on the heap, and a way to track if that pointer had already been 
+                freed. All of these checks were in place to make sure that in situations where users would 
+                copy data from other allocated regions that would overwrite the existing data — in the process, copying 
+                overwriting existing metadata. </p>
         </div>
-        
     </body>
 </html>

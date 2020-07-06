@@ -19,8 +19,17 @@
         <div class = "project_descriptions">
             <h3>Project Overview</h3>
             <IMG id ="gif" SRC="./images/weensyos.gif" style="width:600px">
+            <p id="caption_words">This GIF depicts how the operating system would look 
+                after step 4, with virtual memory allocation in place. 
+                WeensyOS runs four processes, hence the four different numbers. Each process
+                has its own stack, depicted at the far right, and its own data / code / global variables 
+                on the far left. The heap is the space between those two locations. 
+                The K represents the kernel code and data and stack. Each empty slot represents an unmapped address. 
+                The red background represents the L4 pagetables for each process. 
+                Physical and virtual memory mappings are not one to one, after starting at 
+                address 0x100000. </p>
             <p>WeensyOS, a project from the class CS131, was centered around creating
-                a very basic operating system, by implementing the basic 
+                a very basic operating system (x86-64 CPU), by implementing the basic 
                 virtual and physical memory architecture as well as the system calls 
                 fork and exit. We used QEMU to visualize how our code looked like. </p>
             <p>The most difficult part of this project was being unable to use GDB to debug the project. 
@@ -43,17 +52,28 @@
             <p>The second step was modifying the function process_setup(). First, we would allocate a new page table 
                 for the process and copy over the kernel mappings, so that each process isn't accessing the same address soacce. 
                 And after that was complete, the code base provided a function to load each segment of memory of a process, 
-                code/text, data, etc. And this is where 
-            </p>
+                code/text, data, etc. </p>
             <h3>The Third and Fourth Step</h3>
             <p>The third and fourth step of the project was implementing virtual page allocation, so the 
                 physical to virtual memory mappings were no longer 1 to 1 and each process were using the same 
-                virtual address space (but backed by different physical addresses). </p>
+                virtual address space (but is backed by different physical addresses). Each process is also using the full 
+                virtual memory space, and after the address where processes start on the operating system, 
+                the virtual to physical memory mappings are not 1 to 1, that way each of the different processes cannot 
+                write to other processes functions. (For the addresses, before the processes start, there are one to one mappings
+                because the processes cannot write to memory there).</p>
             <h3>The Last Steps</h3>
             <IMG id ="gif" SRC="./images/weensyos_2.gif" style="width:600px">
-            <p>The last couple of steps involved writing the system call fork and exit. These were both difficult functions to 
-                write because like in step 2 I could not explain what was happening in conceptual terms. </p>
+                <p id="caption_words">This GIF depicts when a process forks. The S at the beginning of each process 
+                    is because there are shared pages between each process that's forked. Each forked process has its own heap 
+                    and stack, but it shares the same code, which is why those pages in memory can be shared. </p>
+            <p>The last couple of steps involved writing the system call fork and exit.</p>
+            <p>The hard part about exit was making sure that there were no memory leaks, for example, what should happen 
+                if you fork a process, but there is no more memory? How do you make sure that the memory that you started to allocate
+                is freed? </p>
             <IMG id ="gif" SRC="./images/weensyos_3.gif" style="width:600px">
+                <p id="caption_words">This GIF depicts when the "e" key is hit on the keyboard. 
+                    This allows current process to free its memory and resources for new forked processes. 
+                </p>
         </div>
         
     </body>
