@@ -21,10 +21,10 @@ body {
     color: #349FB7; 
 } 
 /* home page */
-h1 {
+#heading {
     text-align: center;
-    font-family: "Futura", sans-serif;
-    letter-spacing: 2.5px;
+    font-family: "Work Sans", sans-serif;
+    letter-spacing: 1.5px;
     font-weight: 700;
     color: #349FB7; 
     padding: 0px 0px 0px 0px; 
