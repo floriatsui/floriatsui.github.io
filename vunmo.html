@@ -41,7 +41,7 @@
             <h4><strong><em>Receiving Requests</em></strong></h4>
             <p>When the server starts, the function start initializes a fixed number worker threads. Then in the work loop, 
                 the tasks for the threads are placed in the queue. This approach of having a fixed number of worker threads 
-                rather than a growing list of threads made more sense because ifyou initialize a thread per each request, 
+                rather than a growing list of threads made more sense because if you initialize a thread per each request, 
                 eventually you might run out of stack for each thread. </p>
             <h4><strong><em>Processing Requests</em></strong></h4>
             <p>Each worker thread would then process the requests, depending on what kind of request it is: balance, 
