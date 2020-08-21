@@ -49,8 +49,7 @@
                 and locking each of those accounts (to ensure that other threads would not affect those specific two accounts). 
                 However, when locking two accounts, if there isn't an established locking order, it could result in a deadlock. 
                 Because if there was a thread that locked Account 1 and was trying to Account 2, but if there is another 
-                thread trying to has locked Account 2 and trying to lock Account 1, it would result in a stalemate. 
-                Because each account has an ID number, the most logical comparison to use is the ID number. </p>
+                thread trying to has locked Account 2 and trying to lock Account 1, it would result in a stalemate. </p>
             <p>A bug that I encountered here was that after getting the necessary accounts, and calling the respective 
                 handle function (for example, handle_balance, handle_deposit), within those functions, if something failed, let's say that 
                 that you withdraw more than what you have or you try to pay more than what you have, I forgot that you would have 
