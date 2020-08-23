@@ -96,7 +96,8 @@ body {
     padding: 10px 10px; 
 }
 .design_notes {
-    width: 60%; 
+    width: 500px; 
+    margin-left: 4%; 
 }
 .design_notes p{
     font-family: "Cormorant Garamond"; 
