@@ -34,14 +34,13 @@
                 invalid free and double frees, boundary overwrites, and freeing invalid pointers.</p>
             <p>The most difficult part of this project was understanding what to do conceputally and 
                 using a data structure appropriately. </p>
-            <p>The most difficult bug to track was tracking invalid frees,
-                for example trying to free a pointer that was actually allocated in another block. 
-                In general writing kfree(), there was a lot of checks — there needed to be a way to guarantee 
+            <p>The most difficult bug to keep track of was tracking invalid frees:
+                for example catching when a user is trying to free a pointer that was actually allocated in another block. 
+                In general when writing the debugger function for free, there was a lot of checks — there needed to be a way to guarantee 
                 that I was actually accessing the metadata pointer, a way to track if that pointer pointed 
                 to an address that was allocated data on the heap, and a way to track if that pointer had already been 
-                freed. All of these checks were in place to make sure that in situations where users would 
-                copy data from other allocated regions that would overwrite the existing data — in other words, copying and
-                overwriting existing metadata. </p>
+                freed. All of these checks were in place to make sure that in situations where users could potentially 
+                copy data from other allocated regions that would overwrite the existing metadata.</p>
         </div>
     </body>
 </html>
