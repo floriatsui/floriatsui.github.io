@@ -43,10 +43,8 @@
                 interfering with the remaining shards. 
                 A bug I ran into was when the code would be iterating through a server's shards, 
                 the code was also simultaneously trying to remove the shard; however once the shard was removed, 
-                the number of iterations to take would change — and it would not reach the last shard. 
-                To solve this issue, I created a separate data structure to store the new shards and then I copied over the old shards 
-                as well. 
-                After completing the shardmaster, it would interact with the previous simple server from step 1. </p>
+                the number of iterations to take would change, and it would not reach the last shard. 
+                To solve this issue, I created a separate data structure to store the new shards and then I copied over the old shards. </p>
                 <img src="./images/sharding pt 2.gif" style="width:600px">
             <h3>Step 3: Creating a more advanced server</h3>
             <p>The last step of this project was making an improved server, one that actually 
@@ -54,9 +52,7 @@
                 The function mainly responsible for this task was Query, 
                 in which the current server would query the shardmaster and make sure that the 
                 shards on the current server are the appropriate shards, and if the server is not responsible for a certain key, then 
-                it will "put" the key to the correct server. An interesting bug that I ran into when I was writing Query was when you found a key 
-                that a server wasn't responsible for, instead of trying to find the correct server, 
-                I ended up just "putting" the shard to the current server. After completing this step of the process, 
+                it will "put" the key to the correct server. After completing this step of the process, 
                 the shardmaster and servers were able to respond to requests to move 
                 shards — and the data would be moved as well.  
             </p>
