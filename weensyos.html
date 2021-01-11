@@ -40,28 +40,25 @@
                 what my code was trying to do and making sure it was fulfilling those tasks (because many times it
                 just felt like I was writing code into a void—nothing was working it the way I wanted it to). </p>
             <h3>The First Two Steps</h3>
-            <p>The first step of the project was making sure that no process could write to the kernel 
-                or allocate pages of memory from the kernel. This step was just changing how the kernel was 
-                initialized and setting the permission flags (is the page writable? user accessible? and present?) correctly. 
-                The second part of this step was ensuring that the pages the user requested were not in the region of 
+            <p>The first step of the project was making sure that no process could write to the memory of the kernel. This step was 
+                included changing how the kernel was initialized and setting the permission flags 
+                (is the page writable? user accessible? and present?) correctly. 
+                And the second part of this step was ensuring that the pages the user requested were not in the region of 
                 kernel memory. </p>
             <p>The second step of the project was making sure that each process could not write to the 
                 other processes running on the operating system and giving each process its own pagetable. 
                 This step was difficult because I wasn't exactly sure what the code should look like, 
                 part of the reason being I didn't understand what I was doing from a conceptual level, 
-                as well as navigating a large code base and understanding what the existing code was doing. </p>
+                as well as working through navigating a large code base. </p>
             <p>The second step was modifying the function process_setup(). First, we would allocate a new page table 
                 for the process and copy over the kernel mappings, so that each process isn't accessing the same address space. 
                 And after that was complete, the code base provided a function to load each segment of memory of a process, 
                 code/text, data, etc. </p>
             <h3>The Third and Fourth Step</h3>
             <p>The third and fourth step of the project was implementing virtual page allocation, so the 
-                physical to virtual memory mappings were no longer 1 to 1 and each process were using the same 
-                virtual address space (but is backed by different physical addresses). Each process is also using the full 
-                virtual memory space, and after the address where processes start on the operating system, 
-                the virtual to physical memory mappings are not 1 to 1, that way each of the different processes cannot 
-                write to other processes functions. (For the addresses, before the processes start, there are one to one mappings
-                because the processes cannot write to memory there).</p>
+                physical to virtual memory mappings are no longer 1 to 1 and each process is using the same full
+                virtual address space (that is backed by different physical addresses). Because of this, each of the different processes cannot 
+                write to other processes' memory.</p>
             <h3>The Last Steps</h3>
             <IMG id ="gif" SRC="./images/weensyos_2.gif" style="width:600px">
                 <p id="caption_words">This GIF depicts when a process forks. The S at the beginning of each process 
