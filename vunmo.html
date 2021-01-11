@@ -41,15 +41,7 @@
             <h4><strong><em>Processing Requests</em></strong></h4>
             <p>Each worker thread would then process the requests, depending on what kind of request it is: balance, 
                 deposit, withdrawal, payment, and charge. In the case of payment or charge, it would require getting two accounts 
-                and locking each of those accounts (to ensure that other threads would not affect those specific two accounts). 
-                However, when locking two accounts, if there isn't an established locking order, it could result in a deadlock. </p>
-            <p>A bug that I encountered here was that after getting the necessary accounts, and calling the respective 
-                handle function (for example, handle_balance, handle_deposit), within those functions, if something failed, let's say that 
-                that you withdraw more than what you have or you try to pay more than what you have, I forgot that you would have 
-                to send a response back to the appropriate server and send a response
-                to the target server as well as unlock the mutex on the necessary accounts. Initially, I was only sending notifications and 
-                responses after the transaction was successful. 
-            </p>
+                and locking each of those accounts. However, when locking two accounts, if there isn't an established locking order, it could result in a deadlock. </p>
         </div>
         
     </body>
