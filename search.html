@@ -42,8 +42,7 @@
                 that the Querier would use. </p>
             <h3>Querier: Interacting with the User</h3>
             <p>The second part of the project was the Querier, which processed the files that the Indexer wrote to and converted them back into data structures. 
-                And using those data structures to find each word associated with the user's query, c
-                omputing their relevancy scores (term frequency x inverse document frequency) using the frequencies calculated by the 
+                And using those data structures to find each word associated with the user's query, computing their relevancy scores (term frequency x inverse document frequency) using the frequencies calculated by the 
                 Indexer and then returning the pages with the highest scores. And if the user had the "page rank" flag "activated" in their query, 
                 each page score would then have the page rank factored in. </p>
             <p>A bug that I encountered was that initially I didn't account for the case when a user queried something like "dog breed alsdkjfalks". 
