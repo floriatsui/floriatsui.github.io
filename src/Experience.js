@@ -32,7 +32,7 @@ export const Experience = () => {
                   I graduated from Brown, as part of Class of 2023, where I concentrated in Computer Science, with a focus on computer systems, specifically operating systems.
                   <br/><br/>
                   Here are more links to more information about me: <br/>
-                  Resume & <a href="https://www.linkedin.com/in/floriatsui/">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/floriatsui/">LinkedIn</a>
                 </div>
                 <div style={{border: 'solid', padding: '0.5em'}}>
                   Past Internships:
