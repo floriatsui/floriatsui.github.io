@@ -1,17 +1,12 @@
-import * as constants from './appConstants'; 
-
-export const TopBar = ({setCurrentContentVar}) => {
+export const TopBar = () => {
     return (
-    <div id="top-bar" style={{borderBottom: 'solid', display: 'flex', justifyContent: 'space-between', cursor: 'pointer'}}>
-        <div style={{borderRight: 'solid', padding: '1em', flexGrow: 1}} onClick={() => setCurrentContentVar(constants.EXPERIENCE)}>
-            experience
+        <div id="top-bar" style={{ borderBottom: 'solid', display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ fontSize: '45px', paddingLeft: '0.5em' }}>
+                Floria Tsui (she/they)
+            </div>
+            {/* <div style={{ borderLeft: 'solid', padding: '1em' }}>
+                resume
+            </div> */}
         </div>
-        <div style={{borderRight: 'solid', padding: '1em', flexGrow: 1}} onClick={() => setCurrentContentVar(constants.PROJECTS)}>
-            projects
-        </div>
-        <div style={{padding: '1em', flexGrow: 1}} onClick={() => setCurrentContentVar(constants.ART)}>
-            art
-        </div>
-    </div>
     )
 }
