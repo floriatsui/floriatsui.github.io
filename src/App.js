@@ -10,9 +10,11 @@ function App() {
       <div id="left-half" style={{ width: '75%', textAlign: 'left' }}>
         <TopBar />
         <div id="Experience" style={{ padding: '2em' }}>
-          I'm currently working as a Software Engineer at Goldman Sachs, based in New York City. I work within the Global
-          Investment Research Division, where I am building tools for client relationship management, primarily doing
-          frontend development.
+          I'm currently working as a Software Engineer at Grafana Labs. I am part of the platform team, specifically providing tools
+          and automation around CI/CD.
+          <br /><br />
+          I previously worked as a Software Engineer at Goldman Sachs, based in New York City, within the Global
+          Investment Research Division, where I helped build tools for client relationship management.
           {/* I've also been a: <br /> <br /> */}
           {/* <li>Software Engineering Intern @ Goldman Sachs, Summer 2022</li> */}
           {/* <li style={{ listStyleType: 'none' }}>where I was part of a team of four interns building a text-based search feature to search across research publication metadata.</li> */}
@@ -28,9 +30,9 @@ function App() {
           including two semesters where I ran Brown CS's <a href="https://brown-cs1690.github.io/brown-cs167-s22/#/">Operating</a> <a href="https://brown-cs1690.github.io/brown-cs167-s23/#/">Systems</a> class.
           <br /><br />
           Notable projects include: <br />
-          <li>Weenix</li>
-          <li>TCP/IP</li>
-          <li>Raft</li>
+          <li>Weenix - implementing an operating system</li>
+          <li>TCP/IP - implementing the two network protocols</li>
+          <li>Raft - implementing a consensus algorithm</li>
           <br />
         </div>
       </div>
