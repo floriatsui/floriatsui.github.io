@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/floriatsui.github.io/static/css/main.bb67a744.css",
-    "main.js": "/floriatsui.github.io/static/js/main.901dfb77.js",
+    "main.js": "/floriatsui.github.io/static/js/main.ff73db6b.js",
     "static/js/453.253ccfac.chunk.js": "/floriatsui.github.io/static/js/453.253ccfac.chunk.js",
+    "static/media/myself.JPG": "/floriatsui.github.io/static/media/myself.3c7849341204ff09fe8c.JPG",
     "index.html": "/floriatsui.github.io/index.html",
     "main.bb67a744.css.map": "/floriatsui.github.io/static/css/main.bb67a744.css.map",
-    "main.901dfb77.js.map": "/floriatsui.github.io/static/js/main.901dfb77.js.map",
+    "main.ff73db6b.js.map": "/floriatsui.github.io/static/js/main.ff73db6b.js.map",
     "453.253ccfac.chunk.js.map": "/floriatsui.github.io/static/js/453.253ccfac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bb67a744.css",
-    "static/js/main.901dfb77.js"
+    "static/js/main.ff73db6b.js"
   ]
 }
