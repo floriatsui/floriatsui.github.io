@@ -3,8 +3,8 @@ import myImage from './myself.JPG'
 export const AboutMe = () => {
   return (
     <div id="right-half" style={{ borderLeft: 'solid', width: "30%" }}>
-      <div style={{ height: "50%", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img alt={"self-picture"} src={myImage} style={{ height: "80%", borderRadius: "15%" }} />
+      <div style={{ height: "50%", alignItems: 'center', justifyContent: 'center' }}>
+        <img alt={"self-picture"} src={myImage} style={{ height: "80%", borderRadius: "15%", paddingBottom: "1em" }} />
         <div>Pronouns: she/they </div>
       </div>
       <div style={{ borderTop: 'solid', borderBottom: 'solid', display: 'flex', justifyContent: 'space-between' }}>
