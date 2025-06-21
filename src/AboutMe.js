@@ -5,6 +5,7 @@ export const AboutMe = () => {
     <div id="right-half" style={{ borderLeft: 'solid', width: "30%" }}>
       <div style={{ height: "50%", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img alt={"self-picture"} src={myImage} style={{ height: "80%", borderRadius: "15%" }} />
+        <div>Pronouns: she/they </div>
       </div>
       <div style={{ borderTop: 'solid', borderBottom: 'solid', display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ borderRight: 'solid', flexGrow: 1, padding: '1em' }}>
@@ -14,7 +15,7 @@ export const AboutMe = () => {
           <a href="mailto:floriatsui2019@gmail.com">email</a>
         </div>
         <div style={{ flexGrow: 1, padding: '1em' }}>
-          <a href="mailto:floriatsui2019@gmail.com">linkedin</a>
+          <a href="https://www.linkedin.com/in/floriatsui/">linkedin</a>
         </div>
       </div>
       <div style={{ overflowY: 'scroll', height: '20em' }}>
